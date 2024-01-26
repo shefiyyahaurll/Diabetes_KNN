@@ -64,6 +64,18 @@ Selanjutnya, untuk menentukan titik mana dalam data yang paling mirip dengan inp
 
 $$ d(x,y) = \sqrt{\sum_{i=1}^{n}(x{i}-y{i})^{2}}  $$
 
+Sedangkan, Minkowski distance merupakan generalisasi dari Euclidean dan Manhattan distance. Untuk menghitungnya, perhatikan rumus berikut:<br>
+
+$$ d(x,y) = (\sum_{i=1}^{n}\left |x{i} -y{i} \right |^{p})\tfrac{1}{p} $$
+
+
+
+Model Development yang akan kita buat model machine learning dangan algoritma berikut:<br>
+
+- K-Nearest Neighbor (KNN)<br>
+
+Mari siapkan data frame untuk analisis model tersebut lebih dahulu.
+
 ## Evaluation
 
 
