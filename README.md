@@ -26,7 +26,7 @@ Berikut link Diabetes dataset dari kaggle https://www.kaggle.com/datasets/uciml/
 - Terdapat 768 baris (records atau jumlah pengamatan) dalam dataset.
 - Terdapat 9 kolom yaitu: Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age, Outcome.
 
-### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
+### Variabel-variabel pada dataset adalah sebagai berikut:
 - Pregnancies: Berapa kali hamil
 - Glucose: Konsentrasi glukosa plasma 2 jam dalam tes toleransi glukosa oral
 - BloodPressure: Tekanan darah diastolik (mm Hg)
