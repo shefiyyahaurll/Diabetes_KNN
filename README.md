@@ -68,15 +68,31 @@ Sedangkan, Minkowski distance merupakan generalisasi dari Euclidean dan Manhatta
 
 $$ d(x,y) = (\sum_{i=1}^{n}\left |x{i} -y{i} \right |^{p})\tfrac{1}{p} $$
 
-
-
 Model Development yang akan kita buat model machine learning dangan algoritma berikut:<br>
 
 - K-Nearest Neighbor (KNN)<br>
 
-Mari siapkan data frame untuk analisis model tersebut lebih dahulu.
+  - KNeighborsRegressor(n_neighbors=10): Membuat objek model K-Nearest Neighbors dengan menentukan jumlah tetangga terdekat sebanyak 10 (ditentukan oleh parameter n_neighbors).
+  - knn.fit(X_train, y_train): Melatih model KNN dengan menggunakan data pelatihan (X_train sebagai fitur dan y_train sebagai label).
+  - mean_squared_error(y_pred=knn.predict(X_train), y_true=y_train): Mengukur kesalahan model pada data pelatihan dengan menghitung rata-rata dari kuadrat selisih antara nilai prediksi (knn.predict(X_train)) dan nilai sebenarnya (y_train). Hasil dari pengukuran    kesalahan ini kemudian dimasukkan ke dalam suatu lokasi (baris "train_mse" dan kolom "knn") pada suatu dataframe atau struktur data yang disebut models. Ini berguna untuk menyimpan dan memantau kinerja model pada tahap pelatihan.
 
 ## Evaluation
+Mengevaluasi model regresi sebenarnya relatif sederhana. Secara umum, hampir semua metrik adalah sama. Jika prediksi mendekati nilai sebenarnya, performanya baik. Sedangkan jika tidak, performanya buruk. Secara teknis, selisih antara nilai sebenarnya dan nilai prediksi disebut eror. Maka, semua metrik mengukur seberapa kecil nilai eror tersebut.<br>
+
+Metrik yang akan kita gunakan pada prediksi ini adalah MSE atau Mean Squared Error yang menghitung jumlah selisih kuadrat rata-rata nilai sebenarnya dengan nilai prediksi. MSE didefinisikan dalam persamaan berikut<br>
+
+$$ MSE = \frac{1}{N}\sum_{i=1}^{N}(y{i}-y{pred{i}})^{2} $$
+
+Keterangan:<br>
+
+- N = jumlah dataset
+
+- yi = nilai sebenarnya
+
+- y_pred = nilai prediksi<br>
+
+**Pada model KNN yang telah kita buat memiliki nilai MSE train yaitu 0.000134 dan MSE test yaitu 0.000141 ini artinya model KNN Anda tampaknya berkinerja baik pada dataset pelatihan dan pengujian, menunjukkan kesalahan yang rendah dalam memprediksi variabel target.**
+
 
 
 
