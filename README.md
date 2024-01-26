@@ -1,22 +1,33 @@
 # **Laporan Proyek Machine Learning - Shefiyyah Aurellia Wahyudi**<br>
 
 ## Domain Proyek
-Banyaknya orang-orang yang belum mengetahui faktor-faktor apa saja yang menyebabkan terkena diabetes. <br>
-Indonesia menjadi negara ke-5 dengan prevalensi penyakit diabetes tertinggi di dunia pada 2021 menurut International Diabetes Federation (IDF).
+Meningkatnya kesulitan dalam mengekstraksi informasi yang berguna untuk mendukung keputusan dari sistem informasi medis yang besar dan kompleks di rumah sakit dan institusi medis modern. Analisis data manual tradisional menjadi tidak efisien, dan ada kebutuhan akan metode analisis berbasis komputer yang efisien untuk mengatasi tantangan ini. Pengenalan pembelajaran mesin ke dalam analisis medis telah terbukti meningkatkan akurasi diagnostik, mengurangi biaya, dan meminimalkan kebutuhan sumber daya manusia.<br>
+
+Urgensi untuk mengatasi masalah ini terletak pada kebutuhan akan alat diagnostik yang akurat dan efisien untuk mengidentifikasi dan mengelola diabetes secara tepat waktu. Kompleksitas dan volume data medis dalam sistem perawatan kesehatan modern membuat analisis manual tradisional menjadi tidak efisien, sehingga memerlukan penggunaan metode analisis berbasis komputer yang canggih. <br>
+
+Machine learning dapat membantu mengatasi masalah diagnosis medis, terutama dalam konteks diabetes, dengan memberikan analisis yang efisien dan akurat terhadap data medis yang besar dan kompleks. Analisis data manual tradisional menjadi tidak efisien karena semakin sulitnya mengekstraksi informasi yang berguna untuk mendukung keputusan dari sistem informasi medis modern. Dengan memperkenalkan machine learning ke dalam analisis medis, akurasi diagnostik dapat ditingkatkan, biaya dapat dikurangi, dan kebutuhan sumber daya manusia dapat diminimalkan. <br>
+
+  Format Referensi:
+[1]	K. Kayaer and T. Yildirim, “Medical Diagnosis on Pima Indian Diabetes Using General Regression Neural Networks,” Iternational Conf. Artif. Neural Networks Neural Inf. Process., no. January 2003, pp. 181–184, 2003, [Online]. Available: www.yildiz.edu.tr/~tulay/publications/Icann-Iconip2003-2.pdf<br>
+
+
+
 
 ## Business Understanding
-1. Deteksi Dini dan Manajemen Penyakit
-2. Pengembangan Model Prediktif sebagai Alat Bantu Profesional Kesehatan<br>
+1. Dalam diagnosis medis, seperti diagnosis diabetes Pima Indian, terletak pada kebutuhan akan alat diagnostik yang akurat dan efisien untuk mengidentifikasi dan mengelola diabetes secara tepat waktu. 
+2. Ketika sistem informasi medis di rumah sakit modern dan institusi medis menjadi semakin besar, hal ini menyebabkan kesulitan besar dalam mengekstraksi informasi yang berguna untuk mendukung keputusan. Analisis data manual tradisional menjadi tidak efisien dan metode untuk analisis berbasis komputer yang efisien menjadi sangat penting. Telah terbukti bahwa manfaat memperkenalkan pembelajaran mesin ke dalam analisis medis adalah untuk meningkatkan akurasi diagnostik, mengurangi biaya, dan mengurangi sumber daya manusia.<br>
 
 Bagian laporan ini mencakup:
 
 ### Problem Statements
-1. Bagaimana dapat dibangun sebuah model machine learning yang efektif untuk memprediksi apakah seorang pasien dalam dataset memiliki penyakit diabetes atau tidak berdasarkan variabel-variabel yang terdapat dalam dataset?
-2. Bagaimana pengaruh masing-masing variabel terhadap keberadaan penyakit diabetes, dan sejauh mana variabel-variabel tersebut dapat menjadi prediktor yang andal?
+1. Bagaimana penggunaan metode KNN dalam menganalisis fitur-fitur penting dalam database PIMA Indian untuk memprediksi diabetes?
+2. Apa saja fitur-fitur penting yang diperlukan oleh metode KNN untuk mencapai akurasi tinggi dari database PIMA Indian?
+3. Apakah fitur diabetes pedigree function diperlukan atau relevan dalam metode klasifikasi KNN untuk memprediksi diabetes?
 
 ### **Goals**<br>
-1. Dengan Menggunakan Dataset pasien ini, dapat membuat model machine learning untuk memprediksi pakah pasien di dataset punya penyakit diabetes atau bukan
-2. Mengetahui hubungan antara penyakit diabetes dengan Glucose, BloodPressure, SkinThickness, Insulin, BMI
+1. Menganalisis fitur-fitur penting dalam database PIMA Indian menggunakan metode KNN untuk klasifikasi diabetes.
+2. Menemukan fitur-fitur penting yang diperlukan oleh metode KNN untuk mencapai akurasi tinggi dari database PIMA Indian.
+3. Menentukan apakah fitur diabetes pedigree function diperlukan, relevan, atau dapat dihilangkan dalam metode klasifikasi KNN untuk memprediksi diabetes.
 
 ##### **Solution statements**<br>
 Dengan membuat model machine learning dengan Model Development dari K-Nearest Neighbor dapat mengetahui yang mana saja pasien yang terkena penyakit diabetes<br>
@@ -24,7 +35,7 @@ Dengan membuat model machine learning dengan Model Development dari K-Nearest Ne
 ## Data Understanding
 Berikut link Diabetes dataset dari kaggle https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database<br>
 - Terdapat 768 baris (records atau jumlah pengamatan) dalam dataset.
-- Terdapat 9 kolom yaitu: Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age, Outcome.
+- Terdapat 9 kolom yaitu: Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age, Outcome.<br>
 
 ### Variabel-variabel pada dataset adalah sebagai berikut:
 - Pregnancies: Berapa kali hamil
@@ -38,7 +49,7 @@ Berikut link Diabetes dataset dari kaggle https://www.kaggle.com/datasets/uciml/
 - Outcome: Variabel kelas (0 atau 1) 268 dari 768 adalah 1, yang lainnya adalah 0
 
 **Rubrik/Kriteria Tambahan**:
-menghitung kolerasi antar feature seperti Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age, dan Outcome
+Pada multivariate analysis ditemukan bahwa Pada baris paling bawah (nilai korelasi terhadap kolom Outcome), terlihat hampir semua kotak cenderung berwarna biru, yang berarti nilainya mendekati 0. Ini menandakan bahwa hampir semua fitur tidak memiliki hubungan signifikan dengan dengan kolom Outcome.
 
 ## Data Preparation
 Pada bagian ini akan melakukan 2 tahap persiapan data, yaitu:<br>
@@ -56,25 +67,24 @@ Standardisasi adalah teknik transformasi yang paling umum digunakan dalam tahap 
 StandardScaler melakukan proses standarisasi fitur dengan mengurangkan mean (nilai rata-rata) kemudian membaginya dengan standar deviasi untuk menggeser distribusi.  StandardScaler menghasilkan distribusi dengan standar deviasi sama dengan 1 dan mean sama dengan 0. Sekitar 68% dari nilai akan berada di antara -1 dan 1.<br>
 Untuk menghindari kebocoran informasi pada data uji, kita hanya akan menerapkan fitur standarisasi pada data latih. Kemudian, pada tahap evaluasi, kita akan melakukan standarisasi pada data uji. Untuk lebih jelasnya, mari kita terapkan StandardScaler pada data. 
 
+- Menangani Missing Value
+Dari hasil fungsi describe(), nilai minimum untuk **kolom Glucose, BloodPressure, SkinThickness, Insulin, BMI  adalah 0**. BloodPressure, SkinThickness, Insulin, BMI adalah beberapa istilah yang umumnya terkait dengan masalah kesehatan dan diagnosis, terutama dalam konteks diabetes yang memiliki jumlah dan tidak mungkin 0. Maka dari itu ini merupakan data yang tidak valid atau sering disebut missing value.<br>
+
+Yang perlu dilakukan diantaranya:<br>
+1. mengecek jumlah 0 di kolom Glucose, BloodPressure, SkinThickness, Insulin, BMI
+2. mengganti angka 0 dengan N/A atau kosong
+3. mengganti nilai yang kosong dengan nilai rata-rata dari kolom tersebut.
 
 ## Modeling
-Pemilihan nilai k sangat penting dan berpengaruh terhadap performa model. Jika memilih k yang terlalu rendah, maka akan menghasilkan model yang overfit dan hasil prediksinya memiliki varians tinggi. Jika memilih k terlalu tinggi, maka model yang dihasilkan akan underfit dan prediksinya memiliki bias yang tinggi. Namun, dapat mencoba beberapa nilai k yang berbeda, misal: nilai dari 1 hingga 20, kemudian membandingkan mana nilai yang paling sesuai untuk model. <br>
-
-Selanjutnya, untuk menentukan titik mana dalam data yang paling mirip dengan input baru, KNN menggunakan perhitungan ukuran jarak. Metrik ukuran jarak yang digunakan secara default pada library sklearn adalah Minkowski distance. Beberapa metrik ukuran jarak yang juga sering dipakai antara lain: Euclidean distance dan Manhattan distance. Sebagai contoh, jarak Euclidean dihitung sebagai akar kuadrat dari jumlah selisih kuadrat antara titik a dan titik b. Dirumuskan sebagai berikut:<br>
-
-$$ d(x,y) = \sqrt{\sum_{i=1}^{n}(x{i}-y{i})^{2}}  $$
-
-Sedangkan, Minkowski distance merupakan generalisasi dari Euclidean dan Manhattan distance. Untuk menghitungnya, perhatikan rumus berikut:<br>
-
-$$ d(x,y) = (\sum_{i=1}^{n}\left |x{i} -y{i} \right |^{p})\tfrac{1}{p} $$
-
 Model Development yang akan kita buat model machine learning dangan algoritma berikut:<br>
 
 - K-Nearest Neighbor (KNN)<br>
 
   - KNeighborsRegressor(n_neighbors=10): Membuat objek model K-Nearest Neighbors dengan menentukan jumlah tetangga terdekat sebanyak 10 (ditentukan oleh parameter n_neighbors).
   - knn.fit(X_train, y_train): Melatih model KNN dengan menggunakan data pelatihan (X_train sebagai fitur dan y_train sebagai label).
-  - mean_squared_error(y_pred=knn.predict(X_train), y_true=y_train): Mengukur kesalahan model pada data pelatihan dengan menghitung rata-rata dari kuadrat selisih antara nilai prediksi (knn.predict(X_train)) dan nilai sebenarnya (y_train). Hasil dari pengukuran    kesalahan ini kemudian dimasukkan ke dalam suatu lokasi (baris "train_mse" dan kolom "knn") pada suatu dataframe atau struktur data yang disebut models. Ini berguna untuk menyimpan dan memantau kinerja model pada tahap pelatihan.
+  - mean_squared_error(y_pred=knn.predict(X_train), y_true=y_train): Mengukur kesalahan model pada data pelatihan dengan menghitung rata-rata dari kuadrat selisih antara nilai prediksi (knn.predict(X_train)) dan nilai sebenarnya (y_train). Hasil dari pengukuran    kesalahan ini kemudian dimasukkan ke dalam suatu lokasi (baris "train_mse" dan kolom "knn") pada suatu dataframe atau struktur data yang disebut models. Ini berguna untuk menyimpan dan memantau kinerja model pada tahap pelatihan.<br>
+
+Model KNN cocok untuk projek ini karena KNN merupakan metode klasifikasi yang sederhana dan mudah diimplementasikan. Selain itu, KNN juga cocok untuk dataset PIMA Indian karena mampu menangani data numerik dan kategorikal dengan baik. Selain itu, KNN juga cocok untuk projek ini karena mampu memberikan hasil yang baik dalam menganalisis fitur-fitur penting dalam dataset PIMA Indian untuk memprediksi diabetes
 
 ## Evaluation
 Mengevaluasi model regresi sebenarnya relatif sederhana. Secara umum, hampir semua metrik adalah sama. Jika prediksi mendekati nilai sebenarnya, performanya baik. Sedangkan jika tidak, performanya buruk. Secara teknis, selisih antara nilai sebenarnya dan nilai prediksi disebut eror. Maka, semua metrik mengukur seberapa kecil nilai eror tersebut.<br>
