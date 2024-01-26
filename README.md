@@ -7,10 +7,9 @@ Urgensi untuk mengatasi masalah ini terletak pada kebutuhan akan alat diagnostik
 
 Machine learning dapat membantu mengatasi masalah diagnosis medis, terutama dalam konteks diabetes, dengan memberikan analisis yang efisien dan akurat terhadap data medis yang besar dan kompleks. Analisis data manual tradisional menjadi tidak efisien karena semakin sulitnya mengekstraksi informasi yang berguna untuk mendukung keputusan dari sistem informasi medis modern. Dengan memperkenalkan machine learning ke dalam analisis medis, akurasi diagnostik dapat ditingkatkan, biaya dapat dikurangi, dan kebutuhan sumber daya manusia dapat diminimalkan. <br>
 
-  Format Referensi:
-[1]	K. Kayaer and T. Yildirim, “Medical Diagnosis on Pima Indian Diabetes Using General Regression Neural Networks,” Iternational Conf. Artif. Neural Networks Neural Inf. Process., no. January 2003, pp. 181–184, 2003, [Online]. Available: www.yildiz.edu.tr/~tulay/publications/Icann-Iconip2003-2.pdf<br>
-
-
+  Format Referensi:<br>
+  [1]	K. Kayaer and T. Yildirim, “Medical Diagnosis on Pima Indian Diabetes Using General Regression Neural Networks,” Iternational Conf. Artif. Neural Networks Neural Inf. Process., no. January 2003, pp. 181–184, 2003, [Online]. Available: www.yildiz.edu.tr/~tulay/publications/Icann-Iconip2003-2.pdf<br>
+  [2]	A. Perdana, A. Hermawan, and D. Avianto, “Analyze Important Features of PIMA Indian Database For Diabetes Prediction Using KNN,” J. Sisfokom (Sistem Inf. dan Komputer), vol. 12, no. 1, pp. 70–75, 2023, doi: 10.32736/sisfokom.v12i1.1598.<br>
 
 
 ## Business Understanding
@@ -70,10 +69,10 @@ Untuk menghindari kebocoran informasi pada data uji, kita hanya akan menerapkan 
 - Menangani Missing Value
 Dari hasil fungsi describe(), nilai minimum untuk **kolom Glucose, BloodPressure, SkinThickness, Insulin, BMI  adalah 0**. BloodPressure, SkinThickness, Insulin, BMI adalah beberapa istilah yang umumnya terkait dengan masalah kesehatan dan diagnosis, terutama dalam konteks diabetes yang memiliki jumlah dan tidak mungkin 0. Maka dari itu ini merupakan data yang tidak valid atau sering disebut missing value.<br>
 
-Yang perlu dilakukan diantaranya:<br>
-1. mengecek jumlah 0 di kolom Glucose, BloodPressure, SkinThickness, Insulin, BMI
-2. mengganti angka 0 dengan N/A atau kosong
-3. mengganti nilai yang kosong dengan nilai rata-rata dari kolom tersebut.
+  Yang perlu dilakukan diantaranya:<br>
+  1. mengecek jumlah 0 di kolom Glucose, BloodPressure, SkinThickness, Insulin, BMI
+  2. mengganti angka 0 dengan N/A atau kosong
+  3. mengganti nilai yang kosong dengan nilai rata-rata dari kolom tersebut.
 
 ## Modeling
 Model Development yang akan kita buat model machine learning dangan algoritma berikut:<br>
@@ -89,7 +88,7 @@ Model KNN cocok untuk projek ini karena KNN merupakan metode klasifikasi yang se
 ## Evaluation
 Mengevaluasi model regresi sebenarnya relatif sederhana. Secara umum, hampir semua metrik adalah sama. Jika prediksi mendekati nilai sebenarnya, performanya baik. Sedangkan jika tidak, performanya buruk. Secara teknis, selisih antara nilai sebenarnya dan nilai prediksi disebut eror. Maka, semua metrik mengukur seberapa kecil nilai eror tersebut.<br>
 
-Metrik yang akan kita gunakan pada prediksi ini adalah MSE atau Mean Squared Error yang menghitung jumlah selisih kuadrat rata-rata nilai sebenarnya dengan nilai prediksi. MSE didefinisikan dalam persamaan berikut<br>
+Metrik yang akan digunakan pada prediksi ini adalah MSE atau Mean Squared Error yang menghitung jumlah selisih kuadrat rata-rata nilai sebenarnya dengan nilai prediksi. MSE didefinisikan dalam persamaan berikut<br>
 
 $$ MSE = \frac{1}{N}\sum_{i=1}^{N}(y{i}-y{pred{i}})^{2} $$
 
@@ -101,8 +100,9 @@ Keterangan:<br>
 
 - y_pred = nilai prediksi<br>
 
-**Pada model KNN yang telah kita buat memiliki nilai MSE train yaitu 0.000134 dan MSE test yaitu 0.000141 ini artinya model KNN Anda tampaknya berkinerja baik pada dataset pelatihan dan pengujian, menunjukkan kesalahan yang rendah dalam memprediksi variabel target.**
+![Teks alternatif](gambar/output.png)<br>
 
+Hasil penerapan metrik evaluasi yang digunakan sesuai dengan konteks data, pernyataan masalah, dan solusi yang diinginkan di awal proyek. Dalam konteks data PIMA Indian untuk prediksi diabetes, penelitian menggunakan metrik evaluasi akurasi untuk mengukur sejauh mana model KNN mampu memprediksi diabetes dengan benar. Memiliki nilai MSE train yaitu 0.000134 dan MSE test yaitu 0.000141 ini artinya model KNN tampaknya berkinerja baik pada dataset pelatihan dan pengujian, menunjukkan kesalahan yang rendah dalam memprediksi pasien diabetes atau bukan
 
 
 
