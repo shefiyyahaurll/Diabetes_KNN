@@ -11,13 +11,18 @@ Untuk memberikan wawasan tentang fitur-fitur penting untuk metode klasifikasi KN
 
 ### Problem Statements
 1. Bagaimana penggunaan metode KNN dalam menganalisis fitur-fitur penting dalam database PIMA Indian untuk memprediksi diabetes?
-2. Apa saja fitur-fitur penting yang diperlukan oleh metode KNN untuk mencapai akurasi tinggi dari database PIMA Indian?
-3. Apakah fitur diabetes pedigree function diperlukan atau relevan dalam metode klasifikasi KNN untuk memprediksi diabetes?
+2. Berapa akurasi yang dihasilkan dari model KNN untuk memprediksi diabetes?
+3. Apakah akurasi yang dihasilkan merupakan akurasi yang baik dan akurat?
 
 ### **Goals**<br>
-1. Menganalisis fitur-fitur penting dalam database PIMA Indian menggunakan metode KNN untuk klasifikasi diabetes.
-2. Menemukan fitur-fitur penting yang diperlukan oleh metode KNN untuk mencapai akurasi tinggi dari database PIMA Indian.
-3. Menentukan apakah fitur diabetes pedigree function diperlukan, relevan, atau dapat dihilangkan dalam metode klasifikasi KNN untuk memprediksi diabetes.
+1. Menganalisis fitur-fitur penting dalam database PIMA Indian menggunakan metode KNN untuk klasifikasi diabetes.<br>
+Jawaban: Terdapat fitur yang memiliki nilai kolerasi tertinggi yaitu 'glucose' dimana memiliki nilai kolerasi 0.5<br>
+
+2. nilai akurasi mse yang dihasilkan oleh model rendah.
+Jawaban: Memiliki nilai MSE train yaitu 0.000134 dan MSE test yaitu 0.000141 ini artinya model KNN tampaknya berkinerja baik pada dataset pelatihan dan pengujian, menunjukkan kesalahan yang rendah dalam memprediksi pasien diabetes atau bukan.<br>
+
+3. Akurasi nilai mse yang dihasilkan merupakan yang akurat atau baik memiliki kesalahan rendah.
+Jawaban: Mean Squared Error (MSE) yang diperoleh yaitu MSE train yaitu 0.000134 dan MSE test yaitu 0.000141 termasuk rendah menunjukkan bahwa model memiliki tingkat kesalahan yang rendah dalam memprediksi nilai sebenarnya. Dalam konteks diagnosis diabetes, implementasi dari nilai MSE yang rendah dapat memberikan keyakinan yang lebih tinggi dalam hasil prediksi model terhadap kondisi diabetes seseorang. Dengan nilai MSE yang rendah, model dapat memberikan prediksi yang lebih akurat dan dapat diandalkan dalam mengidentifikasi kemungkinan adanya diabetes pada pasien.
 
 ##### **Solution statements**<br>
 Dengan membuat model machine learning dengan Model Development dari K-Nearest Neighbor dapat mengetahui yang mana saja pasien yang terkena penyakit diabetes<br>
@@ -39,7 +44,7 @@ Berikut link Diabetes dataset dari kaggle https://www.kaggle.com/datasets/uciml/
 - Outcome: Variabel kelas (0 atau 1) 268 dari 768 adalah 1, yang lainnya adalah 0 <br>
 
 ![Teks alternatif](gambar/output1.png)<br>
-Pada multivariate analysis ditemukan bahwa Pada baris paling bawah (nilai korelasi terhadap kolom Outcome), terlihat hampir semua kotak cenderung berwarna biru, yang berarti nilainya mendekati 0. Ini menandakan bahwa hampir semua fitur tidak memiliki hubungan signifikan dengan dengan kolom Outcome. Korelasi fitur tertinggi terhadap 'outcome' ata target adalah fitur 'glucose' dimana memiliki nilai kolerasi 0.5<br>
+Pada multivariate analysis ditemukan bahwa Pada baris paling bawah (nilai korelasi terhadap kolom Outcome), terlihat hampir semua kotak cenderung berwarna biru, yang berarti nilainya mendekati 0. Ini menandakan bahwa hampir semua fitur tidak memiliki hubungan signifikan dengan dengan kolom Outcome. Korelasi fitur tertinggi terhadap 'outcome' atau target adalah fitur 'glucose' dimana memiliki nilai kolerasi 0.5<br>
 
 ## Data Preparation
 Pada bagian ini akan melakukan 2 tahap persiapan data, yaitu:<br>
