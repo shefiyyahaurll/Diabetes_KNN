@@ -51,7 +51,7 @@ Pada multivariate analysis ditemukan bahwa Pada baris paling bawah (nilai korela
 - Menangani Missing Value
 
   Yang perlu dilakukan diantaranya:<br>
-  1. mengecek jumlah 0 di kolom Glucose, BloodPressure, SkinThickness, Insulin, BMI
+  1. mengecek jumlah 0 di kolom Glucose, BloodPressure, SkinThickness, Insulin, BMI<br>
 Dari hasil fungsi describe(), nilai minimum untuk **kolom Glucose, BloodPressure, SkinThickness, Insulin, BMI  adalah 0**. BloodPressure, SkinThickness, Insulin, BMI adalah beberapa istilah yang umumnya terkait dengan masalah kesehatan dan diagnosis, terutama dalam konteks diabetes yang memiliki jumlah dan tidak mungkin 0. Maka dari itu ini merupakan data yang tidak valid atau sering disebut missing value.<br>
   3. mengganti angka 0 dengan N/A atau kosong
   4. mengganti nilai yang kosong dengan nilai rata-rata dari kolom tersebut.
