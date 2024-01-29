@@ -84,8 +84,10 @@ Berikut link Diabetes dataset dari kaggle https://www.kaggle.com/datasets/uciml/
    - **Dampak Potensial:** Risiko diabetes meningkat seiring bertambahnya usia. Pemahaman tentang usia dapat membantu dalam menilai risiko secara umum.
 
 Melalui pemahaman mendalam terhadap setiap variabel ini, model machine learning dapat dilatih untuk memprediksi kemungkinan seseorang mengembangkan diabetes berdasarkan karakteristik klinis mereka. Dengan menganalisis variabel-variabel ini, dapat dilakukan identifikasi faktor-faktor risiko dan pencegahan lebih dini.<br>
+
+- multivariate analysis<br>
 ![Teks alternatif](gambar/output1.png)<br>
-Pada multivariate analysis ditemukan bahwa Pada baris paling bawah (nilai korelasi terhadap kolom Outcome), terlihat hampir semua kotak cenderung berwarna biru, yang berarti nilainya mendekati 0. Ini menandakan bahwa hampir semua fitur tidak memiliki hubungan signifikan dengan dengan kolom Outcome. Korelasi fitur tertinggi terhadap 'outcome' atau target adalah fitur 'glucose' dimana memiliki nilai kolerasi 0.5<br>
+Pada  gambar multivariate analysis diatas  ditemukan bahwa Pada baris paling bawah (nilai korelasi terhadap kolom Outcome), terlihat hampir semua kotak cenderung berwarna biru, yang berarti nilainya mendekati 0. Ini menandakan bahwa hampir semua fitur tidak memiliki hubungan signifikan dengan dengan kolom Outcome. Korelasi fitur tertinggi terhadap 'outcome' atau target adalah fitur 'glucose' dimana memiliki nilai kolerasi 0.5<br>
 
 ## Data Preparation
 
