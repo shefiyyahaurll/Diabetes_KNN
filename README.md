@@ -2,7 +2,7 @@
 
 ## Domain Proyek
 Meningkatnya kesulitan dalam mengekstraksi informasi yang berguna untuk mendukung keputusan dari sistem informasi medis yang besar dan kompleks di rumah sakit dan institusi medis modern. Analisis data manual tradisional menjadi tidak efisien, dan ada kebutuhan akan metode analisis berbasis komputer yang efisien untuk mengatasi tantangan ini. Pengenalan pembelajaran mesin ke dalam analisis medis telah terbukti meningkatkan akurasi diagnostik, mengurangi biaya, dan meminimalkan kebutuhan sumber daya manusia. Urgensi untuk mengatasi masalah ini terletak pada kebutuhan akan alat diagnostik yang akurat dan efisien untuk mengidentifikasi dan mengelola diabetes secara tepat waktu. Kompleksitas dan volume data medis dalam sistem perawatan kesehatan modern membuat analisis manual tradisional menjadi tidak efisien, sehingga memerlukan penggunaan metode analisis berbasis komputer yang canggih[1].<br>
-
+Machine Learning telah menunjukkan keefektifannya dalam diagnosa medis, pengurangan biaya, dan meminimalkan kebutuhan sumber daya manusia. Sebagai contoh, sebuah penelitian yang diterbitkan dalam Journal of Basrah Researches menunjukkan bahwa teknik pembelajaran mesin, termasuk algoritma support vector machine (SVM) dan k-nearest neighbor (KNN), mencapai akurasi yang tinggi dalam prediksi diabetes, sehingga meningkatkan kemampuan diagnostik (). Selain itu, sebuah artikel ulasan di Korea Journal of Artificial Intelligence menyoroti potensi pembelajaran mesin, khususnya SVM, dalam mengurangi biaya medis dan meminimalkan kebutuhan sumber daya manusia dalam diagnosis diabetes ()[2].<br>
 Untuk memberikan wawasan tentang fitur-fitur penting untuk metode klasifikasi KNN dalam memprediksi diabetes berdasarkan PIMA Indian Database. Dengan mengatasi kesenjangan ini, bertujuan untuk berkontribusi pada pemahaman tentang fitur-fitur penting untuk prediksi diabetes yang akurat[2]<br>
 
 ## Business Understanding
@@ -16,13 +16,13 @@ Untuk memberikan wawasan tentang fitur-fitur penting untuk metode klasifikasi KN
 
 ### **Goals**<br>
 1. Menganalisis fitur-fitur penting dalam database PIMA Indian menggunakan metode KNN untuk klasifikasi diabetes.<br>
-Jawaban: Terdapat fitur yang memiliki nilai kolerasi tertinggi yaitu 'glucose' dimana memiliki nilai kolerasi 0.5<br>
+Terbukti pada hasil tahap multivariate analysis terdapat fitur yang memiliki nilai kolerasi tertinggi yaitu 'glucose' dimana memiliki nilai kolerasi 0.5<br>
 
 2. nilai akurasi mse yang dihasilkan oleh model rendah.
-Jawaban: Memiliki nilai MSE train yaitu 0.000134 dan MSE test yaitu 0.000141 ini artinya model KNN tampaknya berkinerja baik pada dataset pelatihan dan pengujian, menunjukkan kesalahan yang rendah dalam memprediksi pasien diabetes atau bukan.<br>
+Pada tahap evaluasi menghasilkan nilai MSE train yaitu 0.000134 dan MSE test yaitu 0.000141 ini artinya model KNN tampaknya berkinerja baik pada dataset pelatihan dan pengujian, menunjukkan kesalahan yang rendah dalam memprediksi pasien diabetes atau bukan.<br>
 
 3. Akurasi nilai mse yang dihasilkan merupakan yang akurat atau baik memiliki kesalahan rendah.
-Jawaban: Mean Squared Error (MSE) yang diperoleh yaitu MSE train yaitu 0.000134 dan MSE test yaitu 0.000141 termasuk rendah menunjukkan bahwa model memiliki tingkat kesalahan yang rendah dalam memprediksi nilai sebenarnya. Dalam konteks diagnosis diabetes, implementasi dari nilai MSE yang rendah dapat memberikan keyakinan yang lebih tinggi dalam hasil prediksi model terhadap kondisi diabetes seseorang. Dengan nilai MSE yang rendah, model dapat memberikan prediksi yang lebih akurat dan dapat diandalkan dalam mengidentifikasi kemungkinan adanya diabetes pada pasien.
+Pada tahap evaluasi menghasilkan Mean Squared Error (MSE) yang diperoleh yaitu MSE train yaitu 0.000134 dan MSE test yaitu 0.000141 termasuk rendah menunjukkan bahwa model memiliki tingkat kesalahan yang rendah dalam memprediksi nilai sebenarnya. Dalam konteks diagnosis diabetes, implementasi dari nilai MSE yang rendah dapat memberikan keyakinan yang lebih tinggi dalam hasil prediksi model terhadap kondisi diabetes seseorang. Dengan nilai MSE yang rendah, model dapat memberikan prediksi yang lebih akurat dan dapat diandalkan dalam mengidentifikasi kemungkinan adanya diabetes pada pasien.
 
 ##### **Solution statements**<br>
 Dengan membuat model machine learning dengan Model Development dari K-Nearest Neighbor dapat mengetahui yang mana saja pasien yang terkena penyakit diabetes<br>
@@ -31,6 +31,8 @@ Dengan membuat model machine learning dengan Model Development dari K-Nearest Ne
 Berikut link Diabetes dataset dari kaggle https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database<br>
 - Terdapat 768 baris (records atau jumlah pengamatan) dalam dataset.
 - Terdapat 9 kolom yaitu: Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age, Outcome.<br>
+- Terdapat 7 kolom numerik dengan tipe data int64 yaitu: Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, Age, Outcome. 
+- Terdapat 2 kolom numerik dengan tipe data float64, yaitu: BMI, DiabetesPedigreeFunction
 
 ### Variabel-variabel pada dataset adalah sebagai berikut:
 - Pregnancies: Berapa kali hamil
@@ -43,7 +45,6 @@ Berikut link Diabetes dataset dari kaggle https://www.kaggle.com/datasets/uciml/
 - Age: umur(tahun)
 - Outcome: Variabel kelas (0 atau 1) 268 dari 768 adalah 1, yang lainnya adalah 0 <br>
 
-  
 ![Teks alternatif](gambar/output1.png)<br>
 Pada multivariate analysis ditemukan bahwa Pada baris paling bawah (nilai korelasi terhadap kolom Outcome), terlihat hampir semua kotak cenderung berwarna biru, yang berarti nilainya mendekati 0. Ini menandakan bahwa hampir semua fitur tidak memiliki hubungan signifikan dengan dengan kolom Outcome. Korelasi fitur tertinggi terhadap 'outcome' atau target adalah fitur 'glucose' dimana memiliki nilai kolerasi 0.5<br>
 
@@ -72,9 +73,9 @@ Untuk menghindari kebocoran informasi pada data uji, kita hanya akan menerapkan 
 
 
 ## Modeling
-Model Development yang akan kita buat model machine learning dangan algoritma berikut:<br>
+Algoritma yang digunakan yaitu KNN (K-Nearest Neighbors) adalah salah satu algoritma machine learning yang digunakan untuk masalah klasifikasi dan regresi. Algoritma ini bekerja berdasarkan prinsip bahwa suatu data dapat diklasifikasikan atau diestimasi nilai-nilainya berdasarkan mayoritas label data yang paling dekat dengannya dalam ruang fitur.<br>
 
-Algoritma yang digunakan adalah K-Nearest Neighbors (KNN) untuk tugas regresi, KNN akan menggunakan 10 tetangga terdekat untuk memprediksi nilai regresi suatu observasi, menggunakan nilai n_neighbors=10.<br>
+Algoritma  K-Nearest Neighbors (KNN) untuk tugas regresi digunakan dengan KNN akan menggunakan 10 tetangga terdekat untuk memprediksi nilai regresi suatu observasi, menggunakan nilai n_neighbors=10. Dengan menggunakan nilai n_neighbors=10 untuk mencapai nilai MSE yang rendah<br>
 
 Model KNN cocok untuk projek ini karena KNN merupakan metode klasifikasi yang sederhana dan mudah diimplementasikan. Selain itu, KNN juga cocok untuk dataset PIMA Indian karena mampu menangani data numerik dan kategorikal dengan baik. Selain itu, KNN juga cocok untuk projek ini karena mampu memberikan hasil yang baik dalam menganalisis fitur-fitur penting dalam dataset PIMA Indian untuk memprediksi diabetes
 
