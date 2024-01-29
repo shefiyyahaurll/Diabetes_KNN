@@ -4,8 +4,12 @@
 Meningkatnya kesulitan dalam mengekstraksi informasi yang berguna untuk mendukung keputusan dari sistem informasi medis yang besar dan kompleks di rumah sakit dan institusi medis modern. Analisis data manual tradisional menjadi tidak efisien, dan ada kebutuhan akan metode analisis berbasis komputer yang efisien untuk mengatasi tantangan ini. Pengenalan pembelajaran mesin ke dalam analisis medis telah terbukti meningkatkan akurasi diagnostik, mengurangi biaya, dan meminimalkan kebutuhan sumber daya manusia. Urgensi untuk mengatasi masalah ini terletak pada kebutuhan akan alat diagnostik yang akurat dan efisien untuk mengidentifikasi dan mengelola diabetes secara tepat waktu. Kompleksitas dan volume data medis dalam sistem perawatan kesehatan modern membuat analisis manual tradisional menjadi tidak efisien, sehingga memerlukan penggunaan metode analisis berbasis komputer yang canggih[1].<br>
 Machine Learning telah menunjukkan keefektifannya dalam diagnosa medis, pengurangan biaya, dan meminimalkan kebutuhan sumber daya manusia. Sebagai contoh, sebuah penelitian yang diterbitkan dalam Journal of Basrah Researches menunjukkan bahwa teknik pembelajaran mesin, termasuk algoritma support vector machine (SVM) dan k-nearest neighbor (KNN), mencapai akurasi yang tinggi dalam prediksi diabetes, sehingga meningkatkan kemampuan diagnostik (). Selain itu, sebuah artikel ulasan di Korea Journal of Artificial Intelligence menyoroti potensi pembelajaran mesin, khususnya SVM, dalam mengurangi biaya medis dan meminimalkan kebutuhan sumber daya manusia dalam diagnosis diabetes ()[2].<br>
 Untuk memberikan wawasan tentang fitur-fitur penting untuk metode klasifikasi KNN dalam memprediksi diabetes berdasarkan PIMA Indian Database. Dengan mengatasi kesenjangan ini, bertujuan untuk berkontribusi pada pemahaman tentang fitur-fitur penting untuk prediksi diabetes yang akurat[2]<br>
+Penggunaan pembelajaran mesin dalam diagnosis diabetes telah memberikan dampak positif yang signifikan, termasuk pengurangan biaya dan peningkatan akurasi. Sebuah studi yang diterbitkan di Sensors pada tahun 2020 menunjukkan bahwa penerapan pembelajaran mesin dalam diagnosis diabetes dapat mengurangi biaya perawatan kesehatan dengan meningkatkan akurasi prediksi diabetes. Selain itu, penelitian yang diterbitkan di Journal of Basrah Researches pada tahun 2021 juga menunjukkan bahwa pembelajaran mesin telah berhasil meningkatkan akurasi prediksi diabetes, yang pada gilirannya dapat mengurangi biaya perawatan kesehatan dan meningkatkan efisiensi diagnosis[2].<br>
 
-## Business Understanding
+## Business Understanding<br>
+Analisis data manual tradisional tidak efisien karena memerlukan waktu dan sumber daya manusia yang besar, terutama ketika menghadapi volume data medis yang kompleks dan besar. Proses manual ini rentan terhadap kesalahan manusia dan dapat memakan waktu yang lama. Selain itu, data medis yang kompleks memerlukan pemrosesan yang cermat dan analisis yang mendalam untuk mengidentifikasi pola dan hubungan yang relevan. Oleh karena itu, metode berbasis komputer diperlukan untuk meningkatkan efisiensi dan akurasi analisis data medis.<br>
+
+Metode berbasis komputer, seperti pembelajaran mesin dan algoritma klasifikasi seperti KNN, SVM, dan regresi logistik, dapat mengatasi kompleksitas dan volume data medis dengan lebih efisien. Mereka mampu melakukan analisis cepat dan akurat terhadap data yang besar, mengidentifikasi pola yang kompleks, dan memprediksi hasil dengan tingkat akurasi yang tinggi. Selain itu, metode berbasis komputer juga dapat mengurangi ketergantungan pada sumber daya manusia, sehingga memungkinkan penghematan waktu dan biaya dalam proses analisis data medis.
 1. Dalam diagnosis medis, seperti diagnosis diabetes Pima Indian, terletak pada kebutuhan akan alat diagnostik yang akurat dan efisien untuk mengidentifikasi dan mengelola diabetes secara tepat waktu. 
 2. Ketika sistem informasi medis di rumah sakit modern dan institusi medis menjadi semakin besar, hal ini menyebabkan kesulitan besar dalam mengekstraksi informasi yang berguna untuk mendukung keputusan. Analisis data manual tradisional menjadi tidak efisien dan metode untuk analisis berbasis komputer yang efisien menjadi sangat penting. Telah terbukti bahwa manfaat memperkenalkan pembelajaran mesin ke dalam analisis medis adalah untuk meningkatkan akurasi diagnostik, mengurangi biaya, dan mengurangi sumber daya manusia.<br>
 
@@ -45,18 +49,53 @@ Berikut link Diabetes dataset dari kaggle https://www.kaggle.com/datasets/uciml/
 - Age: umur(tahun)
 - Outcome: Variabel kelas (0 atau 1) 268 dari 768 adalah 1, yang lainnya adalah 0 <br>
 
+### Interpretasi dan Dampak Potensial dari variabel-variabel pada dataset adalah sebagai berikut:<br>
+
+1. **Pregnancies (Berapa kali hamil):**
+   - **Interpretasi:** Menunjukkan jumlah kehamilan yang pernah dialami oleh individu.
+   - **Dampak Potensial:** Jumlah kehamilan dapat memberikan indikasi tentang kecenderungan seseorang terhadap diabetes. Beberapa penelitian menunjukkan bahwa multiparitas (banyak kehamilan) dapat berkontribusi pada risiko diabetes gestasional.
+
+2. **Glucose (Konsentrasi glukosa plasma 2 jam):**
+   - **Interpretasi:** Menunjukkan konsentrasi glukosa dalam plasma setelah tes toleransi glukosa oral.
+   - **Dampak Potensial:** Tingkat glukosa yang tinggi dapat menjadi indikator diabetes atau pre-diabetes. Pengukuran ini membantu menilai seberapa baik tubuh dapat mengelola glukosa.
+
+3. **BloodPressure (Tekanan darah diastolik):**
+   - **Interpretasi:** Menunjukkan tekanan darah diastolik, yaitu tekanan pada dinding arteri ketika jantung sedang beristirahat.
+   - **Dampak Potensial:** Tekanan darah yang tinggi dapat meningkatkan risiko diabetes. Pemantauan tekanan darah penting karena hubungannya dengan penyakit jantung dan vaskular.
+
+4. **SkinThickness (Ketebalan lipatan kulit trisep):**
+   - **Interpretasi:** Mengukur ketebalan lipatan kulit di daerah trisep, yang dapat memberikan perkiraan lemak tubuh.
+   - **Dampak Potensial:** Meskipun tidak langsung terkait dengan diabetes, ketebalan lemak tubuh dapat memiliki implikasi terhadap resistensi insulin dan faktor risiko lainnya.
+
+5. **Insulin (Insulin serum 2 jam):**
+   - **Interpretasi:** Mengukur konsentrasi insulin dalam serum 2 jam setelah tes toleransi glukosa oral.
+   - **Dampak Potensial:** Tingkat insulin yang tinggi dapat mengindikasikan resistensi insulin, yang terkait dengan diabetes tipe 2. Pengukuran ini dapat membantu memahami respons tubuh terhadap glukosa.
+
+6. **BMI (Indeks Massa Tubuh):**
+   - **Interpretasi:** Menghitung indeks massa tubuh sebagai indikator obesitas.
+   - **Dampak Potensial:** Obesitas adalah faktor risiko utama untuk diabetes. BMI tinggi dapat menunjukkan kelebihan berat badan, yang dapat meningkatkan risiko resistensi insulin.
+
+7. **DiabetesPedigreeFunction (Fungsi Silsilah Diabetes):**
+   - **Interpretasi:** Menunjukkan sejauh mana ada riwayat diabetes dalam keluarga.
+   - **Dampak Potensial:** Riwayat keluarga dapat menjadi faktor risiko untuk diabetes. Fungsi silsilah ini memberikan bobot pada seberapa besar pengaruh faktor genetik terhadap kemungkinan seseorang mengembangkan diabetes.
+
+8. **Age (Umur):**
+   - **Interpretasi:** Menunjukkan usia individu dalam tahun.
+   - **Dampak Potensial:** Risiko diabetes meningkat seiring bertambahnya usia. Pemahaman tentang usia dapat membantu dalam menilai risiko secara umum.
+
+Melalui pemahaman mendalam terhadap setiap variabel ini, model machine learning dapat dilatih untuk memprediksi kemungkinan seseorang mengembangkan diabetes berdasarkan karakteristik klinis mereka. Dengan menganalisis variabel-variabel ini, dapat dilakukan identifikasi faktor-faktor risiko dan pencegahan lebih dini.<br>
 ![Teks alternatif](gambar/output1.png)<br>
 Pada multivariate analysis ditemukan bahwa Pada baris paling bawah (nilai korelasi terhadap kolom Outcome), terlihat hampir semua kotak cenderung berwarna biru, yang berarti nilainya mendekati 0. Ini menandakan bahwa hampir semua fitur tidak memiliki hubungan signifikan dengan dengan kolom Outcome. Korelasi fitur tertinggi terhadap 'outcome' atau target adalah fitur 'glucose' dimana memiliki nilai kolerasi 0.5<br>
 
 ## Data Preparation
 
-- Menangani Missing Value
+- Menangani Missing Value<br>
+Dari hasil fungsi describe(), nilai minimum untuk **kolom Glucose, BloodPressure, SkinThickness, Insulin, BMI  adalah 0**. BloodPressure, SkinThickness, Insulin, BMI adalah beberapa istilah yang umumnya terkait dengan masalah kesehatan dan diagnosis, terutama dalam konteks diabetes yang memiliki jumlah dan tidak mungkin 0. Maka dari itu ini merupakan data yang tidak valid atau sering disebut missing value.<br>
 
   Yang perlu dilakukan diantaranya:<br>
   1. mengecek jumlah 0 di kolom Glucose, BloodPressure, SkinThickness, Insulin, BMI<br>
-Dari hasil fungsi describe(), nilai minimum untuk **kolom Glucose, BloodPressure, SkinThickness, Insulin, BMI  adalah 0**. BloodPressure, SkinThickness, Insulin, BMI adalah beberapa istilah yang umumnya terkait dengan masalah kesehatan dan diagnosis, terutama dalam konteks diabetes yang memiliki jumlah dan tidak mungkin 0. Maka dari itu ini merupakan data yang tidak valid atau sering disebut missing value.<br>
-  3. mengganti angka 0 dengan N/A atau kosong
-  4. mengganti nilai yang kosong dengan nilai rata-rata dari kolom tersebut.
+  2. mengganti angka 0 dengan N/A atau kosong<
+  3. mengganti nilai yang kosong dengan nilai rata-rata dari kolom tersebut karena data yang hilang atau kosong banyak, maka dari itu nilai yang kosong dapat diganti dengan nilai rata-rata<br>
 
 - Pembagian dataset dengan fungsi train_test_split dari library sklearn.<br>
 Pada tahap ini menggunakan beberapa variabel dan parameter diantaranya:
