@@ -43,11 +43,6 @@ Berikut link Diabetes dataset dari kaggle https://www.kaggle.com/datasets/uciml/
 - Age: umur(tahun)
 - Outcome: Variabel kelas (0 atau 1) 268 dari 768 adalah 1, yang lainnya adalah 0 <br>
 
-![Teks alternatif](gambar/output1.png)<br>
-Pada multivariate analysis ditemukan bahwa Pada baris paling bawah (nilai korelasi terhadap kolom Outcome), terlihat hampir semua kotak cenderung berwarna biru, yang berarti nilainya mendekati 0. Ini menandakan bahwa hampir semua fitur tidak memiliki hubungan signifikan dengan dengan kolom Outcome. Korelasi fitur tertinggi terhadap 'outcome' atau target adalah fitur 'glucose' dimana memiliki nilai kolerasi 0.5<br>
-
-## Data Preparation
-
 - Menangani Missing Value
 
   Yang perlu dilakukan diantaranya:<br>
@@ -55,7 +50,11 @@ Pada multivariate analysis ditemukan bahwa Pada baris paling bawah (nilai korela
 Dari hasil fungsi describe(), nilai minimum untuk **kolom Glucose, BloodPressure, SkinThickness, Insulin, BMI  adalah 0**. BloodPressure, SkinThickness, Insulin, BMI adalah beberapa istilah yang umumnya terkait dengan masalah kesehatan dan diagnosis, terutama dalam konteks diabetes yang memiliki jumlah dan tidak mungkin 0. Maka dari itu ini merupakan data yang tidak valid atau sering disebut missing value.<br>
   3. mengganti angka 0 dengan N/A atau kosong
   4. mengganti nilai yang kosong dengan nilai rata-rata dari kolom tersebut.
+  
+![Teks alternatif](gambar/output1.png)<br>
+Pada multivariate analysis ditemukan bahwa Pada baris paling bawah (nilai korelasi terhadap kolom Outcome), terlihat hampir semua kotak cenderung berwarna biru, yang berarti nilainya mendekati 0. Ini menandakan bahwa hampir semua fitur tidak memiliki hubungan signifikan dengan dengan kolom Outcome. Korelasi fitur tertinggi terhadap 'outcome' atau target adalah fitur 'glucose' dimana memiliki nilai kolerasi 0.5<br>
 
+## Data Preparation
 
 - Pembagian dataset dengan fungsi train_test_split dari library sklearn.<br>
 Pada tahap ini menggunakan beberapa variabel dan parameter diantaranya:
