@@ -47,7 +47,6 @@ Berikut link Diabetes dataset dari kaggle https://www.kaggle.com/datasets/uciml/
 Pada multivariate analysis ditemukan bahwa Pada baris paling bawah (nilai korelasi terhadap kolom Outcome), terlihat hampir semua kotak cenderung berwarna biru, yang berarti nilainya mendekati 0. Ini menandakan bahwa hampir semua fitur tidak memiliki hubungan signifikan dengan dengan kolom Outcome. Korelasi fitur tertinggi terhadap 'outcome' atau target adalah fitur 'glucose' dimana memiliki nilai kolerasi 0.5<br>
 
 ## Data Preparation
-Pada bagian ini akan melakukan 2 tahap persiapan data, yaitu:<br>
 
 - Menangani Missing Value
 
