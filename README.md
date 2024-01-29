@@ -9,8 +9,6 @@ Untuk memberikan wawasan tentang fitur-fitur penting untuk metode klasifikasi KN
 1. Dalam diagnosis medis, seperti diagnosis diabetes Pima Indian, terletak pada kebutuhan akan alat diagnostik yang akurat dan efisien untuk mengidentifikasi dan mengelola diabetes secara tepat waktu. 
 2. Ketika sistem informasi medis di rumah sakit modern dan institusi medis menjadi semakin besar, hal ini menyebabkan kesulitan besar dalam mengekstraksi informasi yang berguna untuk mendukung keputusan. Analisis data manual tradisional menjadi tidak efisien dan metode untuk analisis berbasis komputer yang efisien menjadi sangat penting. Telah terbukti bahwa manfaat memperkenalkan pembelajaran mesin ke dalam analisis medis adalah untuk meningkatkan akurasi diagnostik, mengurangi biaya, dan mengurangi sumber daya manusia.<br>
 
-Bagian laporan ini mencakup:
-
 ### Problem Statements
 1. Bagaimana penggunaan metode KNN dalam menganalisis fitur-fitur penting dalam database PIMA Indian untuk memprediksi diabetes?
 2. Apa saja fitur-fitur penting yang diperlukan oleh metode KNN untuk mencapai akurasi tinggi dari database PIMA Indian?
@@ -38,14 +36,22 @@ Berikut link Diabetes dataset dari kaggle https://www.kaggle.com/datasets/uciml/
 - BMI: Indeks massa tubuh (berat badan dalam kg/(tinggi badan dalam m)^2)
 - DiabetesPedigreeFunction: Fungsi silsilah Diabetes
 - Age: umur(tahun)
-- Outcome: Variabel kelas (0 atau 1) 268 dari 768 adalah 1, yang lainnya adalah 0
+- Outcome: Variabel kelas (0 atau 1) 268 dari 768 adalah 1, yang lainnya adalah 0 <br>
 
-**Rubrik/Kriteria Tambahan**:
 ![Teks alternatif](gambar/output1.png)<br>
-Pada multivariate analysis ditemukan bahwa Pada baris paling bawah (nilai korelasi terhadap kolom Outcome), terlihat hampir semua kotak cenderung berwarna biru, yang berarti nilainya mendekati 0. Ini menandakan bahwa hampir semua fitur tidak memiliki hubungan signifikan dengan dengan kolom Outcome.
+Pada multivariate analysis ditemukan bahwa Pada baris paling bawah (nilai korelasi terhadap kolom Outcome), terlihat hampir semua kotak cenderung berwarna biru, yang berarti nilainya mendekati 0. Ini menandakan bahwa hampir semua fitur tidak memiliki hubungan signifikan dengan dengan kolom Outcome. Korelasi fitur tertinggi terhadap 'outcome' ata target adalah fitur 'glucose' dimana memiliki nilai kolerasi 0.5<br>
 
 ## Data Preparation
 Pada bagian ini akan melakukan 2 tahap persiapan data, yaitu:<br>
+
+- Menangani Missing Value
+
+  Yang perlu dilakukan diantaranya:<br>
+  1. mengecek jumlah 0 di kolom Glucose, BloodPressure, SkinThickness, Insulin, BMI
+Dari hasil fungsi describe(), nilai minimum untuk **kolom Glucose, BloodPressure, SkinThickness, Insulin, BMI  adalah 0**. BloodPressure, SkinThickness, Insulin, BMI adalah beberapa istilah yang umumnya terkait dengan masalah kesehatan dan diagnosis, terutama dalam konteks diabetes yang memiliki jumlah dan tidak mungkin 0. Maka dari itu ini merupakan data yang tidak valid atau sering disebut missing value.<br>
+  3. mengganti angka 0 dengan N/A atau kosong
+  4. mengganti nilai yang kosong dengan nilai rata-rata dari kolom tersebut.
+
 
 - Pembagian dataset dengan fungsi train_test_split dari library sklearn.<br>
 Pada tahap ini menggunakan beberapa variabel dan parameter diantaranya:
@@ -60,22 +66,11 @@ Standardisasi adalah teknik transformasi yang paling umum digunakan dalam tahap 
 StandardScaler melakukan proses standarisasi fitur dengan mengurangkan mean (nilai rata-rata) kemudian membaginya dengan standar deviasi untuk menggeser distribusi.  StandardScaler menghasilkan distribusi dengan standar deviasi sama dengan 1 dan mean sama dengan 0. Sekitar 68% dari nilai akan berada di antara -1 dan 1.<br>
 Untuk menghindari kebocoran informasi pada data uji, kita hanya akan menerapkan fitur standarisasi pada data latih. Kemudian, pada tahap evaluasi, kita akan melakukan standarisasi pada data uji. Untuk lebih jelasnya, mari kita terapkan StandardScaler pada data. 
 
-- Menangani Missing Value
-Dari hasil fungsi describe(), nilai minimum untuk **kolom Glucose, BloodPressure, SkinThickness, Insulin, BMI  adalah 0**. BloodPressure, SkinThickness, Insulin, BMI adalah beberapa istilah yang umumnya terkait dengan masalah kesehatan dan diagnosis, terutama dalam konteks diabetes yang memiliki jumlah dan tidak mungkin 0. Maka dari itu ini merupakan data yang tidak valid atau sering disebut missing value.<br>
-
-  Yang perlu dilakukan diantaranya:<br>
-  1. mengecek jumlah 0 di kolom Glucose, BloodPressure, SkinThickness, Insulin, BMI
-  2. mengganti angka 0 dengan N/A atau kosong
-  3. mengganti nilai yang kosong dengan nilai rata-rata dari kolom tersebut.
 
 ## Modeling
 Model Development yang akan kita buat model machine learning dangan algoritma berikut:<br>
 
-- K-Nearest Neighbor (KNN)<br>
-
-  - KNeighborsRegressor(n_neighbors=10): Membuat objek model K-Nearest Neighbors dengan menentukan jumlah tetangga terdekat sebanyak 10 (ditentukan oleh parameter n_neighbors).
-  - knn.fit(X_train, y_train): Melatih model KNN dengan menggunakan data pelatihan (X_train sebagai fitur dan y_train sebagai label).
-  - mean_squared_error(y_pred=knn.predict(X_train), y_true=y_train): Mengukur kesalahan model pada data pelatihan dengan menghitung rata-rata dari kuadrat selisih antara nilai prediksi (knn.predict(X_train)) dan nilai sebenarnya (y_train). Hasil dari pengukuran    kesalahan ini kemudian dimasukkan ke dalam suatu lokasi (baris "train_mse" dan kolom "knn") pada suatu dataframe atau struktur data yang disebut models. Ini berguna untuk menyimpan dan memantau kinerja model pada tahap pelatihan.<br>
+Algoritma yang digunakan adalah K-Nearest Neighbors (KNN) untuk tugas regresi, KNN akan menggunakan 10 tetangga terdekat untuk memprediksi nilai regresi suatu observasi, menggunakan nilai n_neighbors=10.<br>
 
 Model KNN cocok untuk projek ini karena KNN merupakan metode klasifikasi yang sederhana dan mudah diimplementasikan. Selain itu, KNN juga cocok untuk dataset PIMA Indian karena mampu menangani data numerik dan kategorikal dengan baik. Selain itu, KNN juga cocok untuk projek ini karena mampu memberikan hasil yang baik dalam menganalisis fitur-fitur penting dalam dataset PIMA Indian untuk memprediksi diabetes
 
