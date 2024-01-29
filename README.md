@@ -18,10 +18,10 @@ Untuk memberikan wawasan tentang fitur-fitur penting untuk metode klasifikasi KN
 1. Menganalisis fitur-fitur penting dalam database PIMA Indian menggunakan metode KNN untuk klasifikasi diabetes.<br>
 Terbukti pada hasil tahap multivariate analysis terdapat fitur yang memiliki nilai kolerasi tertinggi yaitu 'glucose' dimana memiliki nilai kolerasi 0.5<br>
 
-2. nilai akurasi mse yang dihasilkan oleh model rendah.
+2. nilai akurasi mse yang dihasilkan oleh model rendah.<br>
 Pada tahap evaluasi menghasilkan nilai MSE train yaitu 0.000134 dan MSE test yaitu 0.000141 ini artinya model KNN tampaknya berkinerja baik pada dataset pelatihan dan pengujian, menunjukkan kesalahan yang rendah dalam memprediksi pasien diabetes atau bukan.<br>
 
-3. Akurasi nilai mse yang dihasilkan merupakan yang akurat atau baik memiliki kesalahan rendah.
+3. Akurasi nilai mse yang dihasilkan merupakan yang akurat atau baik memiliki kesalahan rendah.<br>
 Pada tahap evaluasi menghasilkan Mean Squared Error (MSE) yang diperoleh yaitu MSE train yaitu 0.000134 dan MSE test yaitu 0.000141 termasuk rendah menunjukkan bahwa model memiliki tingkat kesalahan yang rendah dalam memprediksi nilai sebenarnya. Dalam konteks diagnosis diabetes, implementasi dari nilai MSE yang rendah dapat memberikan keyakinan yang lebih tinggi dalam hasil prediksi model terhadap kondisi diabetes seseorang. Dengan nilai MSE yang rendah, model dapat memberikan prediksi yang lebih akurat dan dapat diandalkan dalam mengidentifikasi kemungkinan adanya diabetes pada pasien.
 
 ##### **Solution statements**<br>
